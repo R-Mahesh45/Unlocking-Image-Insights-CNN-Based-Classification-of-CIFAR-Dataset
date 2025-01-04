@@ -1,9 +1,27 @@
-### **Code Snippet 1: Checking PyTorch Version and CUDA Availability**
+# Image Recognition with CNNs (CIFAR-10 Dataset) 
+
+## Project Overview
+
+This project focuses on building a Convolutional Neural Network (CNN) to classify images from the CIFAR-10 dataset using TensorFlow and Keras.
+
+## Dependencies
+
+Ensure you have the following libraries installed:
+
+```bash
+pip install torch tensorflow numpy
+```
+
+## Code Snippets
+
+### 1. **Checking PyTorch Version and CUDA Availability**
+
 ```python
 import torch
 print(torch.__version__)
 print("CUDA Available: ", torch.cuda.is_available())
 ```
+
 **Explanation:**
 - **`import torch`**: Imports the PyTorch library for deep learning.
 - **`torch.__version__`**: Prints the version of PyTorch installed.
@@ -14,11 +32,13 @@ This ensures the PyTorch environment is set up and checks for GPU availability, 
 
 ---
 
-### **Code Snippet 2: Checking TensorFlow Version**
+### 2. **Checking TensorFlow Version**
+
 ```python
 import tensorflow as tf
 print(tf.__version__)
 ```
+
 **Explanation:**
 - **`import tensorflow as tf`**: Imports TensorFlow, another popular deep learning library.
 - **`tf.__version__`**: Prints the TensorFlow version installed.
@@ -28,10 +48,12 @@ Confirms the TensorFlow environment is configured correctly.
 
 ---
 
-### **Code Snippet 3: TensorFlow Import**
+### 3. **TensorFlow Import**
+
 ```python
 import tensorflow as tf
 ```
+
 **Explanation:**
 - Re-imports TensorFlow, though redundant if done earlier.
 
@@ -40,11 +62,13 @@ Serves as a setup step to ensure TensorFlow is available for subsequent operatio
 
 ---
 
-### **Code Snippet 4: Loading CIFAR-10 Dataset**
+### 4. **Loading CIFAR-10 Dataset**
+
 ```python
 from tensorflow.keras.datasets import cifar10
 (train_images, train_labels), (test_images, test_labels) = cifar10.load_data()
 ```
+
 **Explanation:**
 - **`from tensorflow.keras.datasets import cifar10`**: Imports CIFAR-10 from Keras' built-in datasets.
 - **`cifar10.load_data()`**: Downloads and loads the CIFAR-10 dataset. It returns:
@@ -56,7 +80,8 @@ Loads the CIFAR-10 dataset for use in the CNN model. The dataset contains images
 
 ---
 
-### **Code Snippet 5: Data Preprocessing and Augmentation**
+### 5. **Data Preprocessing and Augmentation**
+
 ```python
 from tensorflow.keras.utils import to_categorical
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
@@ -86,6 +111,7 @@ datagen.fit(train_images)
 # Create generators for training and validation
 train_generator = datagen.flow(train_images, train_labels, batch_size=32)
 ```
+
 **Explanation:**
 - **`to_categorical`**: Converts class labels (0-9) into one-hot encoded vectors.
 - **Normalization**: Divides pixel values by 255 to scale them to a [0, 1] range, aiding in faster and more stable training.
@@ -99,3 +125,9 @@ train_generator = datagen.flow(train_images, train_labels, batch_size=32)
 
 **Usage:**  
 Prepares the training data by normalizing, one-hot encoding, and augmenting it. This step ensures the CNN is trained on diverse and well-prepared data.
+
+---
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
